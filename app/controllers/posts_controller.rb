@@ -8,6 +8,12 @@ class PostsController < ProtectedController
     render json: @posts
   end
 
+  def user_index
+    @posts = current_user.posts.all
+
+    render json: @posts
+  end
+
   # GET /posts/1
   def show
     render json: @post
